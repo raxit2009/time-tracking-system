@@ -1,0 +1,32 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Date</th>
+        <th>Check In</th>
+        <th>Check Out</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @user_attendance.each do |user_attendance| %>
+          <% if user_attendance.check_in.split(":")[0].to_i > 10 %>
+              <% warning = "warning" %>
+          <%end%>
+          <tr class = "<%=warning %>">
+            <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+            <td><%= user_attendance.created_at.strftime("%d-%B-%Y") %></td>
+            
+            <% if user_attendance.check_in.present? %>
+                <td><%= user_attendance.check_in %></td>
+            <% else %>
+                <td>-</td>
+            <% end %>
+            <% if user_attendance.check_out.present? %>
+                <td><%= user_attendance.check_out  %></td>
+            <% else %>
+                <td>-</td>
+            <% end %>
+          </tr>     
+        <%end%>
+    </tbody>
+</table>

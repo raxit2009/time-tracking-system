@@ -1,0 +1,57 @@
+<div class="border-form-div">
+  <%#= bootstrap_devise_error_messages! %>
+  <div class="panel panel-default devise-bs">
+    <div class="panel-heading">
+      <h4><%= t('.sign_up', default: 'Sign up') %></h4>
+    </div>
+    <% if flash[:notice].present? %>
+      <div class="alert alert-info">
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :first_name) %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :last_name) %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :username) %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :email) %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :password) %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <p class='error'><%= show_errors(@user, :password_confirmation) %></p>
+        </div>
+        <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'devise/shared/links' %>
+</div>
