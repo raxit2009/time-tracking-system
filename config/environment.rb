@@ -4,4 +4,4 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-Rails.application.routes.default_url_options[:host] = 'https://time-tracking-system.herokuapp.com'
+Rails.application.routes.default_url_options[:host] = 'https://time-tracking-system.herokuapp.com/'
