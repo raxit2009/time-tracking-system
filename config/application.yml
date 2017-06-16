@@ -1,2 +1,3 @@
 gmail_username: 'demotestinterview@gmail.com'
 gmail_password: 'temp@123'
+MAILER_URL: "https://time-tracking-system.herokuapp.com"
